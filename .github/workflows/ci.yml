@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ./app
+        run: npm ci
+
+      - name: Lint
+        working-directory: ./app
+        run: npm run lint
+
+      - name: Build Docker image (local)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: pfe-sample-app:ci
+
+      - name: Run container smoke test
+        run: |
+          docker run -d --name pfe-ci -p 4000:3000 pfe-sample-app:ci
+          sleep 2
+          curl -sf http://localhost:4000/ || (docker logs pfe-ci && exit 1)
+          docker rm -f pfe-ci
