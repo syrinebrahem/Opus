@@ -47,7 +47,7 @@ jobs:
   deploy:
     name: Build and Push Docker Image
     runs-on: ubuntu-latest
-    needs: lint-and-build  # waits for lint/build to succeed
+    needs: lint-and-build  
 
     steps:
       - name: Checkout code

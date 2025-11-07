@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Savoir le temps à Torshavn</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: #f7f8fa;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #0078ff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #005fcc;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur mon interface dynamique Opus</h1>
+  <button id="btn">Obtenir le temps réel</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('btn').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/message');
+        const data = await response.json();
+        document.getElementById('result').innerText = data.message;
+      } catch (err) {
+        document.getElementById('result').innerText = 'Erreur de connexion.';
+      }
+    });
+  </script>
+</body>
+</html>

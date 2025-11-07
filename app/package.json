@@ -1,15 +1,13 @@
 {
-  "name": "pfe-sample-app",
+  "name": "pfe-demo-app",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "app/src/index.js",
+  "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "lint": "eslint . --ext .js"
+    "start": "node app/src/index.js"
   },
   "dependencies": {
     "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.0.0"
+     
   }
 }

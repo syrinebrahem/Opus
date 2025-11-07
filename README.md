@@ -1,4 +1,3 @@
-# PFE Containerize — sample
 Fonctions:
 - Multi-stage Dockerfile pour Node.js
 - docker-compose pour dev

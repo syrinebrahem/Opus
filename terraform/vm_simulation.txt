@@ -1,0 +1,4 @@
+Instance fictive simulée :
+- Nom : pfe-sample-vm
+- Type : t3.micro
+- Région : eu-west-1
