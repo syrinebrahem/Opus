@@ -3,8 +3,8 @@ Fonctions:
 - docker-compose pour dev
 - Kubernetes manifests (deployment, service)
 - GitHub Actions workflow: lint + build on push
-- Terraform example to create a small VM (AWS)
-- Monitoring plan: Prometheus + Grafana (suggestion)
+- Terraform example 
+
 
 How to run locally:
 1. Build & run with Docker Compose:
